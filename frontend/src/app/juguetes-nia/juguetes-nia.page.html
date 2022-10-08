@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Listado de juguetes</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="Volver"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item button *ngFor="let j of juguetes" (click)="showMenu(j.id)">
+      <ion-label>
+
+        <h1>{{j.nombre}}</h1>
+        <ion-icon  class="ion-float-right ion-margin-bottom" name="arrow-forward"></ion-icon>
+        <p>{{j.descripcion}}</p>
+
+
+
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-label>
+      <ion-select-option value="ver">Ver</ion-select-option>
+      <ion-select-option value="modificar">Modificar</ion-select-option>
+      <ion-select-option value="eliminar">Eliminar</ion-select-option>
+    </ion-label>
+  </ion-list>
+
+</ion-content>

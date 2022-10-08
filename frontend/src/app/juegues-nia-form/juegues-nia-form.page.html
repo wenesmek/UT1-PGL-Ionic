@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Juguete</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="Volver"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div id="container">
+    <h1 class="ion-margin-bottom" *ngIf="juguete.id !== null">Juguete {{juguete.id}}</h1>
+
+    <h1 class="ion-margin-bottom" *ngIf="juguete.id === null">Crear juguete</h1>
+
+    <ion-item-divider></ion-item-divider>
+
+
+    <h2>Nombre:</h2>
+    <ion-input [(ngModel)]="juguete.nombre" style="border: 1px solid grey" [required]="true" placeholder="Introduzca un nombre"></ion-input>
+
+    <h2>Descripción:</h2>
+    <ion-input [required]="true" [(ngModel)]="juguete.descripcion" style="border: 1px solid grey"  placeholder="Introduzca una descripción"></ion-input>
+
+    <ion-item-divider></ion-item-divider>
+
+    <div *ngIf="juguete.id === null">
+      <ion-button class="ion-margin-top" (click)="createJuguete()">Crear</ion-button>
+
+    </div>
+
+    <div *ngIf="juguete.id !== null">
+      <ion-button class="ion-margin-top" (click)="updateJuguete()">Guardar</ion-button>
+      <ion-button class="ion-margin-top" (click)="deleteJuguete()">Eliminar</ion-button>
+
+    </div>
+
+  </div>
+
+
+
+</ion-content>
